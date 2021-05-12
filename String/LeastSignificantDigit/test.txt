@@ -1,0 +1,11 @@
+10
+apple
+cycle
+fluid
+class
+phone
+stick
+board
+slide
+block
+alpha
