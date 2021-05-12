@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1616403333 source:d:\codeblocks_projects\data_structure\polynomial\main.cpp
+	<iostream>
+	"Polynomial.h"
+
+1616402690 d:\codeblocks_projects\data_structure\polynomial\polynomial.h
+	<iostream>
+
+1616403236 source:d:\codeblocks_projects\data_structure\polynomial\polynomial.cpp
+	"Polynomial.h"
+

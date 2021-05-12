@@ -1,21 +1,38 @@
 #include <iostream>
 #include "Polynomial.h"
 
-//#define MAXN 10       // 多项式项数
-//#define MAXK 1e8        // 重复调用次数
-
-const int MAXN = 10;
-const int MAXK = 1e8;       // a better way in C++;
-
 using namespace std;
 
 int main()
 {
-    double a[MAXN];     // 多项式系数
-    for (int i = 0; i < MAXN; ++i)
-        a[i] = i;
+    Poly p1, p2, sum, product1, product2;
+    cout << "please enter the polynomial(in following format):n c1 e1 c2 e2 c3 e3 ...\n";
+    p1 = ReadPoly(cin);
+    cout << "polynomial p1:\n";
+    Print(p1);
+    cout << endl;
+    cout << "please enter the polynomial(in following format):\nn c1 e1 c2 e2 c3 e3 ...\n";
+    p2 = ReadPoly(cin);
+    cout << "polynomial p2:\n";
+    Print(p2);
+    cout << endl;
+    sum = AddPoly(p1, p2);
+    cout << "polynomial sum:\n";
+    Print(sum);
+    cout << endl;
+    product1 = Mult1(p1, p2);
+    cout << "polynomial product1:\n";
+    Print(product1);
+    cout << endl;
+    product2 = Mult2(p1, p2);
+    cout << "polynomial product2:\n";
+    Print(product2);
+    cout << endl;
 
-    test(MAXN - 1, a, 1.1, f1, MAXK);
-    test(MAXN - 1, a, 1.1, f2, MAXK);
+    destroy(p1);
+    destroy(p2);
+    destroy(sum);
+    destroy(product1);
+    destroy(product2);
     return 0;
 }

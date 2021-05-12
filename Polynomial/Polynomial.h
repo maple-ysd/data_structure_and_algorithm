@@ -1,18 +1,36 @@
 #ifndef POLYNOMIAL_H_
 #define POLYNOMIAL_H_
 
-// f = a0 + a1 * x + a2 * x^2 + ...
-double f1(int n, double a[], double x);
+#include <iostream>
 
-// f = a0 + (a1 + (a2 + ... + (an-1 + (an)) * x ...) * x)
-double f2(int n, double a[], double x);
+typedef struct Node *Poly;
+struct Node
+{
+    double coef;
+    int expo;
+    Node *next;
+};
+// read polynomial into Poly object
+/*
+format
+n   c1 e1   c2 e2   c3 e3 ....
+n is the number  of terms, c is coefficient, e is exponent
+*/
+Poly ReadPoly(std::istream &is);
 
-// test which func is faster f1 or f2 ?
-typedef double (*pfunc)(int n, double a[], double x);
+// add polynomial p1, p2 and store the sum into ret
+Poly AddPoly(Poly p1, Poly p2);
 
-void test(int n, double a[], double x, pfunc pf);   // called one time
-// called several times;
-void test(int n, double a[], double x, pfunc pf, double called_times);
+// multiply two polynomials
+// each item of p1 times p2 and sum into ret by AddPoly method
+Poly Mult1(Poly p1, Poly p2);
+// each item of p1 times each item of p2 and then insert it into ret
+Poly Mult2(Poly p1, Poly p2);
 
+// print polynomial
+void Print(Poly p);
+
+// free the memory
+void destroy(Poly p);
 
 #endif // POLYNOMIAL_H_
